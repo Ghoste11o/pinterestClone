@@ -1,0 +1,22 @@
+{
+  "name": "pinterestclone",
+  "version": "1.0.0",
+  "description": "",
+  "main": "scripts.js",
+  "scripts": {
+    "dev": "parcel ./src/index.html"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ghoste11o/pinterestClone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ghoste11o/pinterestClone/issues"
+  },
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  }
+}
