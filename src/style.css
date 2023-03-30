@@ -29,13 +29,27 @@ h1, h2, h3, h4, h5, h6, p {
 
 /* ===== end-clear-styles ===== */
 
+@media (max-width: 767px) {
+    #header {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 625px) {
+    #mainList {
+        display: flex;
+        flex-wrap: wrap;
+    }
+}
+
 #header {
     padding: 20px;
     display: flex;
     gap: 15px;
-    height: 80px;
     position: relative;
-    z-index: 2;
+    z-index: 1;
+    align-items: center;
 }
 
 #main {
@@ -46,37 +60,76 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #headerLogo {
-    width: 100%;
-    height: 100%;
+    width: 40px;
     object-fit: cover;
     fill: #e60023;
+}
+
+#headerTitleLink {
+    color: #e60023;
 }
 
 #headerTitle {
     align-self: center;
     font-size: 22px;
-    
 }
 
-#headerTitleLink {
-    color: #cc0000;
+#inputWrap {
+    display: flex;
+    flex-grow: 1;
+    height: 40px;
+    position: relative;
+    align-items: center;
 }
 
 #headerInput {
-    flex-grow: 1;
     border-radius: 30px;
     border-width: 1px;
     border-color: #cc0000;
-    padding: 5px 15px;
+    padding: 5px 15px 5px 45px;
+    width: 100%;
+    height: 100%;
 }
 
-#headerInput:hover {
+#headerInput:hover,:focus {
     border-width: 2px;
+    border-color: #cc0000;
+    outline: none;
+}
+
+#headerBtnSearch {
+    background: none;
+    border: 0;
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    padding: 5px;
+}
+
+#headerBtnSearch:hover {
+    cursor: pointer;
+}
+
+#headerSearchIcon {
+    object-fit: cover;
+    fill: rgba(230, 0, 35, 0.8);
+    height: 30px;
+    width: 30px;
+    border-right: 1px rgba(230, 0, 35, 0.4) solid;
+}
+
+#headerBtn {
+    display: flex;
+    justify-content: center;
+    max-width: 150px;
+    width: 100%;
+    flex-direction: column;
+    position: relative;
 }
 
 #headerBtnBoards {
-    height: 100%;
-    width: 120px;
+    height: 40px;
     border-radius: 30px;
     border-width: 1px;
     border-color: #cc0000;
@@ -90,6 +143,7 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #headerBoards {
+    width: 100%;
     display: none;
     border: 1px solid #cc0000;
     border-radius: 10px;
@@ -97,11 +151,19 @@ h1, h2, h3, h4, h5, h6, p {
     background-color: rgba(255, 255, 255, 0.8);
     text-transform: uppercase;
     font-size: 12px;
+    position: absolute;
+    top: 40px;
+    left: 0;
 }
 
-#headerBoard {
+#headerBoardDescr {
     text-align: center;
-    padding: 10px;
+    padding: 10px 0;
+}
+
+#headerBoardDescr:hover {
+    cursor: pointer;
+    font-weight: bold;
 }
 
 #headerBoard:nth-child(1):hover {
@@ -122,7 +184,7 @@ h1, h2, h3, h4, h5, h6, p {
     column-gap: 15px;
 }
 
-#mainListItem {
+.mainListItem {
     -webkit-column-break-inside: avoid;
     margin-bottom: 15px;
 }
@@ -147,18 +209,18 @@ h1, h2, h3, h4, h5, h6, p {
     border-radius: 15px;
 }
 
+#mainImg:hover {
+    cursor: pointer;
+}
+
 #submenu {
+    /* display: flex; */
     display: none;
-    width: 100%;
     position: absolute;
-    padding: 0 20px;
-    left: 0;
-    top: 20px;
-    z-index: 2;
-    
-    flex-direction: column;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
     gap: 2px;
-    justify-content: center;
 }
 
 #mainInfo {
@@ -229,12 +291,13 @@ h1, h2, h3, h4, h5, h6, p {
 }
 
 #overlay {
+    /* display: flex; */
     position: fixed;
     left: 0;
     top: 0;
     right: 0;
     bottom: 0;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4);
     align-items: center;
     justify-content: center;
     display: none;
@@ -259,17 +322,34 @@ h1, h2, h3, h4, h5, h6, p {
     gap: 5px;
 }
 
-#modalReportBtnSend,
-#modalReportBtnClose,
-#modalBoardBtnClose,
 #submenuBtnBoard,
 #submenuBtnReport {
+    padding: 4px 0;
+    width: 50%;
+    border-radius: 5px;
+    font-size: 10px;
+}
+
+#modalReportBtnSend,
+#modalReportBtnClose,
+#modalBoardBtnClose {
     padding: 5px 0;
     border-radius: 5px;
 }
 
-#modalReportListItem:hover,
-#modalBoardsListItem:hover,
+#modalReportListItemDescr,
+.modalBoardDescr {
+    padding: 10px 0;
+    display: inline-block;
+}
+
+#modalReportListItemDescr:hover,
+.modalBoardDescr:hover,
+#modalReportCheckbox {
+    cursor: pointer;
+    font-weight: bold;
+}
+
 #modalReportBtnClose:hover,
 #modalReportBtnSend:hover,
 #modalBoardBtnClose:hover,
@@ -283,7 +363,7 @@ h1, h2, h3, h4, h5, h6, p {
 #modalBoardsList {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
 }
 
 #modalBoardTitle,
