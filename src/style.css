@@ -189,17 +189,17 @@ h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 15px;
 }
 
-#mainImgWrap::before {
+.mainImgWrap::before {
     content: "";
     display: block;
     padding-top: 75%;
 }
 
-#mainImgWrap {
+.mainImgWrap {
     position: relative;
 }
 
-#mainImg {
+.mainImg {
     position: absolute;
     left: 0;
     top: 0;
@@ -209,11 +209,11 @@ h1, h2, h3, h4, h5, h6, p {
     border-radius: 15px;
 }
 
-#mainImg:hover {
+.mainImg:hover {
     cursor: pointer;
 }
 
-#submenu {
+.submenu {
     /* display: flex; */
     display: none;
     position: absolute;
